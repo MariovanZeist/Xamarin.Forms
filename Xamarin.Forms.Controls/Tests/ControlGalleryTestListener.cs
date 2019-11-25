@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using NUnit.Framework.Interfaces;
-using Xamarin.Forms;
 
 namespace Xamarin.Forms.Controls.Tests
 {
@@ -26,31 +25,6 @@ namespace Xamarin.Forms.Controls.Tests
 		{
 			Debug.WriteLine($"{test.Name} started");
 			MessagingCenter.Send(test, "TestStarted");
-		}
-
-		void PrintResults(ITestResult result)
-		{
-			Debug.WriteLine($">>>>>> name {result.FullName}");
-			Debug.WriteLine($">>>>>> Passcount {result.PassCount}");
-			Debug.WriteLine($">>>>>> Failcount {result.FailCount}");
-
-			Debug.WriteLine($">>>>>> StackTrace: {result.StackTrace}");
-			Debug.WriteLine($">>>>>> RunState: {result.Test.RunState}");
-
-			Debug.WriteLine($">>>>>> Properties: {result.Test.Properties}");
-
-			Debug.WriteLine($">>>>>> Inconclusive: {result.InconclusiveCount}");
-
-			Debug.WriteLine($">>>>>> Output: {result.Output}");
-
-
-			if (result.HasChildren)
-			{
-				foreach (var r in result.Children)
-				{
-					PrintResults(r);
-				}
-			}
 		}
 	}
 }

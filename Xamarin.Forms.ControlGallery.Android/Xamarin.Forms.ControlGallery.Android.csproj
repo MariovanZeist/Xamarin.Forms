@@ -97,7 +97,6 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="PerformanceTrackerRenderer.cs" />
     <Compile Include="PlatformSpecificCoreGalleryFactory.cs" />
-    <Compile Include="Tests\ControlGalleryTestListener.cs" />
     <Compile Include="Tests\Issues.cs" />
     <Compile Include="Tests\PlatformAssemblyRetriever.cs" />
     <Compile Include="PreApplicationClassActivity.cs" />

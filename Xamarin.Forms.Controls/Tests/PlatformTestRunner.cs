@@ -15,7 +15,11 @@ namespace Xamarin.Forms.Controls.Tests
 		{
 			testFilter = testFilter ?? TestFilter.Empty;
 
+#if NETSTANDARD2_0
 			var controls = Assembly.GetExecutingAssembly();
+#else
+			var controls = typeof(PlatformTestRunner).GetTypeInfo().Assembly;
+#endif
 			Assembly platform = DependencyService.Resolve<IAssemblyRetriever>().GetAssembly();
 
 			var runner = new NUnitTestAssemblyRunner(new DefaultTestAssemblyBuilder());

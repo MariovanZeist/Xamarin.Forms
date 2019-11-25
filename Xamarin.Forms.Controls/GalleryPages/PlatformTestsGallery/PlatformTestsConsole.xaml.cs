@@ -2,6 +2,7 @@
 using NUnit.Framework.Interfaces;
 using Xamarin.Forms.Controls.Tests;
 using Xamarin.Forms.Xaml;
+using NUnit.Framework.Internal;
 
 namespace Xamarin.Forms.Controls.GalleryPages.PlatformTestsGallery
 {
@@ -28,6 +29,9 @@ namespace Xamarin.Forms.Controls.GalleryPages.PlatformTestsGallery
 		{
 			base.OnAppearing();
 
+			// Only want to run a subset of tests? Create a filter and pass it into tests.Run()
+			//var filter = new TestNameContainsFilter("Bugzilla");
+			
 			var tests = new PlatformTestRunner();
 			if (tests != null)
 			{
@@ -41,7 +45,6 @@ namespace Xamarin.Forms.Controls.GalleryPages.PlatformTestsGallery
 		{
 			Device.BeginInvokeOnMainThread(() =>
 			{
-
 				if (_runFailed)
 				{
 					Status.Text = FailedText;
@@ -57,7 +60,6 @@ namespace Xamarin.Forms.Controls.GalleryPages.PlatformTestsGallery
 					Status.Text = SuccessText;
 					Status.TextColor = _successColor;
 				}
-
 			});
 		}
 
